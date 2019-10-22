@@ -1,0 +1,3307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>운송신청서</title>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<script src='./lib/jquery/jquery-1.12.4.js'></script>
+<script src='./lib/moment/moment-2.14.1.min.js'></script>
+<script src='./lib/moment/moment-with-locales-2.14.1.js'></script>
+<script src='./lib/bootstrap/3.3.7/dist/js/bootstrap.min.js'></script>
+<script
+	src='./lib/eonasdan-bootstrap-datetimepicker/4.17.37/build/js/bootstrap-datetimepicker.min.js'></script>
+<script src='./lib/custom/custom.js'></script>
+<link rel='stylesheet'
+	href='./lib/bootstrap/3.3.7/dist/css/bootstrap.min.css' />
+<link rel='stylesheet'
+	href='./lib/eonasdan-bootstrap-datetimepicker/4.17.37/build/css/bootstrap-datetimepicker.min.css' />
+<link rel='stylesheet' href='./lib/custom/custom.css' />
+<link rel='stylesheet' href='./lib/custom/style.css' />
+</head>
+<body>
+	<div class='container-fluid'>
+		<!--최상위 컨테이너 시작-->
+		<div class='row fixedTitle'>
+			<!--화면명 Row 시작-->
+			<div class='col-sm-12 headerExt'>
+				<h1>
+					<span class='glyphicon glyphicon-th-large'></span>운송신청서
+				</h1>
+				<div class='pull-right'>
+					<a href='UI-CARE-0601-001S(KR).html'>KR</a> | <a
+						href='UI-CARE-0601-001S(EN).html'>EN</a> | <a
+						href='UI-CARE-0601-001S(FR).html'>FR</a>
+				</div>
+			</div>
+		</div>
+		<!--화면명 Row 종료-->
+
+		<div class='fixedTitleBlock'></div>
+
+		<div class='main-group row'>
+			<!--화면메인그룹 Row 시작-->
+			<div class='col-sm-12'>
+
+				<div class='panel panel-default'>
+					<!--조회 패널 시작-->
+					<div class='panel-heading clearfix'>
+						<h2 onclick="$('#운송신청서_조회').toggle();" id='조회'>
+							<span class='glyphicon glyphicon-chevron-right'></span> 조회
+						</h2>
+					</div>
+
+					<div id='운송신청서_조회' class='panel-body'>
+						<!--조회화면메인그룹 시작-->
+
+						<div class='row'>
+							<!--Row 시작-->
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-inline form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='조회__신청일자_0'>신청일자<span
+										class='mandatory'> *</span></label>
+
+									<div class='col-sm-8 input-group'>
+										<div class='input-group date' id='조회__신청일자_0_div'>
+											<input type='text' class='form-control ' id='조회__신청일자_0'
+												value='' /> <span class='input-group-addon'> <span
+												class='glyphicon glyphicon-calendar'></span>
+											</span>
+										</div>
+										~
+										<div class='input-group date' id='조회__신청일자_0_div'>
+											<input type='text' class='form-control ' id='조회__신청일자_0'
+												value='' /> <span class='input-group-addon'> <span
+												class='glyphicon glyphicon-calendar'></span>
+											</span>
+										</div>
+									</div>
+									<script type='text/javascript'>
+										$(function() {
+											$('#조회__신청일자_0_div')
+													.datetimepicker({
+														format : 'DD/MM/YYYY'
+													});
+										});
+										$(function() {
+											$('#조회__신청일자_0_div')
+													.datetimepicker({
+														format : 'DD/MM/YYYY'
+													});
+										});
+									</script>
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='조회__상태_1'>상태<span
+										class='mandatory'> *</span></label>
+
+									<div class='col-sm-8'>
+										<select class='form-control ' id='조회__상태_1'>
+											<option>전체</option>
+											<option>임시저장</option>
+											<option>오류통보</option>
+											<option>접수</option>
+											<option>승인</option>
+											<option>거절</option>
+										</select>
+									</div>
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+						</div>
+						<!--Row 종료-->
+
+						<div class='row'>
+							<!--Row 시작-->
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='조회__화물관리번호_2'>화물관리번호</label>
+
+									<div class='col-sm-8 input-group'>
+										<!--항목내의 텍스트 시작-->
+										<div class='input-group col-sm-12' id=''>
+											<input class='form-control ' type='text' id='조회__화물관리번호_2'
+												value=''>
+										</div>
+									</div>
+									<!--항목내의 텍스트 종료-->
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='조회__관련번호유형_3'>관련번호유형</label>
+
+									<div class='col-sm-8'>
+										<select class='form-control ' id='조회__관련번호유형_3'>
+											<option>전체</option>
+											<option>IM4</option>
+											<option>IM7</option>
+											<option>IM8</option>
+											<option>EX1</option>
+											<option>EX3</option>
+										</select>
+									</div>
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+						</div>
+						<!--Row 종료-->
+
+						<div class='row'>
+							<!--Row 시작-->
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='조회__관련번호_4'>관련번호</label>
+
+									<div class='col-sm-8 input-group'>
+										<!--항목내의 텍스트 시작-->
+										<div class='input-group col-sm-12' id=''>
+											<input class='form-control ' type='text' id='조회__관련번호_4'
+												value=''>
+										</div>
+									</div>
+									<!--항목내의 텍스트 종료-->
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='조회__운송구분_5'>운송구분</label>
+
+									<div class='col-sm-8'>
+										<select class='form-control ' id='조회__운송구분_5'>
+											<option>전체</option>
+											<option>T1신청</option>
+											<option>이동신청</option>
+											<option>세관이송신청</option>
+											<option>환적이동신청(공항→항구)</option>
+											<option>환적이동신청(항구→공항)</option>
+											<option>국경이동신청</option>
+										</select>
+									</div>
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+						</div>
+						<!--Row 종료-->
+
+						<div class='row'>
+							<!--버튼그룹 Row 시작-->
+
+							<div class='col-sm-12 text-right'>
+								<!--버튼그룹 시작-->
+
+								<button class='btn btn-default btn-left' type='button'
+									value='초기화'>
+									<span class='glyphicon glyphicon-refresh'></span> 초기화
+								</button>
+
+								<button class='btn btn-default ' type='button' value='조회'>
+									<span class='glyphicon glyphicon-search'></span> 조회
+								</button>
+
+							</div>
+							<!--버튼그룹 종료-->
+
+						</div>
+						<!--버튼그룹 Row 종료-->
+
+					</div>
+					<!--조회 화면메인그룹 종료-->
+
+				</div>
+				<!--조회 패널 종료-->
+
+				<table class='table table-bordered table-hover'>
+					<!--목록 테이블 시작-->
+					<thead>
+						<tr>
+							<th class='text-center'>운송신청번호</th>
+							<th class='text-center'>화물관리번호</th>
+							<th class='text-center'>B/L번호</th>
+							<th class='text-center'>신청일자</th>
+							<th class='text-center'>운송구분</th>
+							<th class='text-center'>관련번호유형</th>
+							<th class='text-center'>관련번호</th>
+							<th class='text-center'>출발지창고</th>
+							<th class='text-center'>도착지창고</th>
+							<th class='text-center'>관할조직</th>
+							<th class='text-center'>차량대수</th>
+							<th class='text-center'>상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class=''>100153637-2015-T-0000006</td>
+							<td class=''>15ESS000001-0063</td>
+							<td class=''>DCMS997356</td>
+							<td class=''>13/02/2015</td>
+							<td class=''>보세운송</td>
+							<td class=''>IM7</td>
+							<td class=''>CMDL151022444</td>
+							<td class=''>[WTCMDL002]TICTS TERMINAL</td>
+							<td class=''>[WVCMTM000]TUNDUMA VIRTUAL BONDED AREA</td>
+							<td class=''>[CMDLP] DOUALA PORT</td>
+							<td class=''>1</td>
+							<td class=''>[저장] 01/11/2017 14:50</td>
+						</tr>
+						<tr>
+							<td class=''>100153637-2015-T-0000005</td>
+							<td class=''>15MAE000001-0018</td>
+							<td class=''>569863592</td>
+							<td class=''>17/01/2015</td>
+							<td class=''>이동신청</td>
+							<td class=''></td>
+							<td class=''>CMDL151001869</td>
+							<td class=''>[WTCMDL001]CPA TERMINAL</td>
+							<td class=''>[WVCMTM000]TUNDUMA VIRTUAL BONDED AREA</td>
+							<td class=''>[CMDLP] DOUALA PORT</td>
+							<td class=''>1</td>
+							<td class=''>[전송] 01/11/2017 14:50</td>
+						</tr>
+						<tr>
+							<td class=''>100153637-2015-T-0000004</td>
+							<td class=''>14MAE100120-0018</td>
+							<td class=''>569863663</td>
+							<td class=''></td>
+							<td class=''>보세운송</td>
+							<td class=''>IM8</td>
+							<td class=''>CMDL151001862</td>
+							<td class=''>[WTCMDL001]CPA TERMINAL</td>
+							<td class=''>[WVCMTM000]TUNDUMA VIRTUAL BONDED AREA</td>
+							<td class=''>[CMDLP] DOUALA PORT</td>
+							<td class=''>1</td>
+							<td class=''>[전송] 01/11/2017 14:50</td>
+						</tr>
+						<tr>
+							<td class=''>100153637-2015-T-0000003</td>
+							<td class=''>14MAE100119-0378</td>
+							<td class=''>754562309</td>
+							<td class=''>10/01/2015</td>
+							<td class=''>보세운송</td>
+							<td class=''>IM8</td>
+							<td class=''>CMDL151005991</td>
+							<td class=''>[WTCMDL002]TICTS TERMINAL</td>
+							<td class=''>[WVCMTM000]TUNDUMA VIRTUAL BONDED AREA</td>
+							<td class=''>[CMDLP] DOUALA PORT</td>
+							<td class=''>2</td>
+							<td class=''>[심사종료(승인)] 01/11/2017 14:50</td>
+						</tr>
+						<tr>
+							<td class=''>100153637-2015-T-0000002</td>
+							<td class=''>14CMA000069-0059</td>
+							<td class=''>DCMS997389</td>
+							<td class=''>07/01/2015</td>
+							<td class=''>보세운송</td>
+							<td class=''>IM8</td>
+							<td class=''>CMDL151001229</td>
+							<td class=''>[WTCMDL002]TICTS TERMINAL</td>
+							<td class=''>[WVCMTM000]TUNDUMA VIRTUAL BONDED AREA</td>
+							<td class=''>[CMDLP] DOUALA PORT</td>
+							<td class=''>1</td>
+							<td class=''>[심사종료(반려)] 01/11/2017 14:50</td>
+						</tr>
+						<tr>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+						</tr>
+						<tr>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+						</tr>
+						<tr>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+						</tr>
+						<tr>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+							<td class=''></td>
+						</tr>
+				</table>
+				<!--목록 테이블 종료-->
+				<div class='text-center'>
+					<!--목록 테이블 페이지 시작-->
+					<ul class='pagination pagination-sm'>
+						<li class='disabled'><a href='javascript://return false;'><span
+								class='glyphicon glyphicon-chevron-left'></span></a></li>
+						<li><a href='javascript://return false;'>1</a></li>
+						<li><a href='javascript://return false;'>2</a></li>
+						<li><a href='javascript://return false;'>3</a></li>
+						<li><a href='javascript://return false;'>4</a></li>
+						<li><a href='javascript://return false;'>5</a></li>
+						<li><a href='javascript://return false;'>6</a></li>
+						<li><a href='javascript://return false;'>7</a></li>
+						<li><a href='javascript://return false;'>8</a></li>
+						<li><a href='javascript://return false;'>9</a></li>
+						<li><a href='javascript://return false;'>10</a></li>
+						<li><a href='javascript://return false;'><span
+								class='glyphicon glyphicon-chevron-right'></span></a></li>
+					</ul>
+				</div>
+				<!--목록 테이블 페이지 종료-->
+				<div class='row'>
+					<!--버튼그룹 Row 시작-->
+
+					<div class='col-sm-12 text-right'>
+						<!--버튼그룹 시작-->
+
+						<button class='btn btn-default btn-left' type='button' value='신규'>
+							<span class='glyphicon glyphicon-new-window'></span> 신규
+						</button>
+
+					</div>
+					<!--버튼그룹 종료-->
+
+				</div>
+				<!--버튼그룹 Row 종료-->
+
+				<div class='panel panel-default'>
+					<!--운송 패널 시작-->
+					<div class='panel-heading clearfix'>
+						<h2 onclick="$('#운송신청서_운송').toggle();" id='운송'>
+							<span class='glyphicon glyphicon-chevron-right'></span> 운송
+						</h2>
+					</div>
+
+					<div id='운송신청서_운송' class='panel-body'>
+						<!--운송화면메인그룹 시작-->
+
+						<div class='row'>
+							<!--Row 시작-->
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='운송__운송신청번호_21'>운송신청번호<span
+										class='mandatory'> *</span></label>
+
+									<div class='col-sm-8 input-group'>
+										<!--항목내의 텍스트 시작-->
+										<div class='input-group col-sm-12' id=''>
+											<input class='form-control ' type='text' id='운송__운송신청번호_21'
+												value=''>
+										</div>
+									</div>
+									<!--항목내의 텍스트 종료-->
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+							<div class=col-sm-6>
+
+								<div class='form-group form-group-sm '>
+									<!--항목내의 폼그룹 시작-->
+
+									<label class='control-label col-sm-4 ' for='운송__상태_22'>상태</label>
+
+									<div class='col-sm-8 input-group'>
+										<!--항목내의 텍스트 시작-->
+										<div class='input-group col-sm-12' id=''>
+											<input class='form-control ' type='text' id='운송__상태_22'
+												value='[저장] 01/11/2017 14:50'>
+										</div>
+									</div>
+									<!--항목내의 텍스트 종료-->
+
+								</div>
+								<!--항목내의 폼그룹 종료-->
+
+							</div>
+
+						</div>
+						<!--Row 종료-->
+
+						<div class='row'>
+							<!--Row 시작-->
+
+							<div class=col-sm-12>
+								<!--단일 라인 시작-->
+								<div class='form-group form-inline form-group-sm'>
+									<!--단일 라인 폼그룹 시작-->
+									<label class='control-label label-line ' for='운송___23'></label>
+								</div>
+								<!--단일 라인 폼그룹 종료-->
+							</div>
+							<!--단일 라인 종료-->
+						</div>
+						<!--Row 종료-->
+
+
+						<div class='sub-group-title row'>
+							<!--화면서브그룹 Title Row 시작-->
+							<div class='col-sm-12'>
+								<h3 onclick="$('#운송신청서_운송_일반').toggle();" id='일반'>
+									<span class='glyphicon glyphicon-menu-hamburger'></span>일반
+								</h3>
+							</div>
+						</div>
+
+						<div class='sub-group-content row'>
+							<!--화면서브그룹 Content Row 시작-->
+							<div id='운송신청서_운송_일반' class='panel-body'>
+								<!--일반 화면서브그룹 Content 시작-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_신청인_24'>신청인<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text' id='운송_일반_신청인_24'
+														value=''> <a class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_일반_신청인_24'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text' id='운송_일반_신청인_24'
+														value='' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_운송구분_25'>운송구분<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8'>
+												<select class='form-control ' id='운송_일반_운송구분_25'>
+													<option>전체</option>
+													<option>T1신청</option>
+													<option>이동신청</option>
+													<option>세관이송신청</option>
+													<option>환적이동신청(공항→항구)</option>
+													<option>환적이동신청(항구→공항)</option>
+													<option>국경이동신청</option>
+												</select>
+											</div>
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_신청일자_26'>신청일자<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<div class='input-group date' id='운송_일반_신청일자_26_div'>
+													<input type='text' class='form-control ' id='운송_일반_신청일자_26'
+														value='01/11/2017' /> <span class='input-group-addon'>
+														<span class='glyphicon glyphicon-calendar'></span>
+													</span>
+												</div>
+											</div>
+											<script type='text/javascript'>
+												$(function() {
+													$('#운송_일반_신청일자_26_div')
+															.datetimepicker(
+																	{
+																		format : 'DD/MM/YYYY'
+																	});
+												});
+											</script>
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_운송기한_27'>운송기한<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<div class='input-group date' id='운송_일반_운송기한_27_div'>
+													<input type='text' class='form-control ' id='운송_일반_운송기한_27'
+														value='15/11/2017' /> <span class='input-group-addon'>
+														<span class='glyphicon glyphicon-calendar'></span>
+													</span>
+												</div>
+											</div>
+											<script type='text/javascript'>
+												$(function() {
+													$('#운송_일반_운송기한_27_div')
+															.datetimepicker(
+																	{
+																		format : 'DD/MM/YYYY'
+																	});
+												});
+											</script>
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_운송방법_28'>운송방법<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8'>
+												<select class='form-control ' id='운송_일반_운송방법_28'>
+													<option>1: 철로운송</option>
+													<option>2: 육로운송</option>
+													<option>3: 복합운송</option>
+												</select>
+											</div>
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 '
+												for='운송_일반_복합운송 운송횟수_29'>복합운송 운송횟수</label>
+
+											<div class='col-sm-8'>
+												<select class='form-control ' id='운송_일반_복합운송 운송횟수_29'>
+													<option></option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+												</select>
+											</div>
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 '
+												for='운송_일반_컨테이너 적출여부_30'>컨테이너 적출여부<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8'>
+												<input name='운송_일반_컨테이너 적출여부_30' id='운송_일반_컨테이너 적출여부_30_1'
+													type='radio' checked value='Y'> <label
+													class='label-for-select ' for='운송_일반_컨테이너 적출여부_30'>Y</label>
+												<input name='운송_일반_컨테이너 적출여부_30' id='운송_일반_컨테이너 적출여부_30_2'
+													type='radio' value='N'> <label
+													class='label-for-select ' for='운송_일반_컨테이너 적출여부_30'>N</label>
+											</div>
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 '
+												for='운송_일반_컨테이너 적출허가신청 번호_31'>컨테이너 적출허가신청 번호</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-12' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_컨테이너 적출허가신청 번호_31'
+														value='100153637-2015-C-0000006'>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_신청섹터_32'>신청섹터<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text' id='운송_일반_신청섹터_32'
+														value='CMDL'> <a class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_일반_신청섹터_32'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text' id='운송_일반_신청섹터_32'
+														value='DOUALA SECTOR' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_도착지섹터_33'>도착지섹터<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_도착지섹터_33' value='CMDL'> <a
+														class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_일반_도착지섹터_33'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_도착지섹터_33' value='DOUALA SECTOR' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_신청세관_34'>신청세관<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text' id='운송_일반_신청세관_34'
+														value='CMDLP'> <a class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_일반_신청세관_34'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text' id='운송_일반_신청세관_34'
+														value='DOUALA PORT' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_도착지세관_35'>도착지세관<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_도착지세관_35' value='CMDLT'> <a
+														class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_일반_도착지세관_35'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_도착지세관_35' value='DOUALA TRANSFERT' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_출발지창고_36'>출발지창고<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_출발지창고_36' value='GLOBAUTO'> <a
+														class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_일반_출발지창고_36'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_출발지창고_36' value='STE GLOBAUTO' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_일반_도착지창고_37'>도착지창고</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_도착지창고_37' value='AFRIQUE_CONST'> <a
+														class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_일반_도착지창고_37'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text'
+														id='운송_일반_도착지창고_37' value='STE AFRIQUE CONSTRUCTION'
+														readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+							</div>
+							<!--일반 화면서브그룹 Content 종료-->
+						</div>
+						<!--화면서브그룹 Content Row 종료-->
+
+						<div class='sub-group-title row'>
+							<!--화면서브그룹 Title Row 시작-->
+							<div class='col-sm-12'>
+								<h3 onclick="$('#운송신청서_운송_화물').toggle();" id='화물'>
+									<span class='glyphicon glyphicon-menu-hamburger'></span>화물
+								</h3>
+							</div>
+						</div>
+
+						<div class='sub-group-content row'>
+							<!--화면서브그룹 Content Row 시작-->
+							<div id='운송신청서_운송_화물' class='panel-body'>
+								<!--화물 화면서브그룹 Content 시작-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_화물관리번호_38'>화물관리번호<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-12' id=''>
+													<input class='form-control ' type='text'
+														id='운송_화물_화물관리번호_38' value=''>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_B/L번호_39'>B/L번호<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-12' id=''>
+													<input class='form-control ' type='text'
+														id='운송_화물_B/L번호_39' value=''>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-12>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-2 ' for='운송_화물_물품설명_40'>물품설명<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-10 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-12' id=''>
+													<textarea class='form-control y' rows='4'
+														id='운송_화물_물품설명_40'></textarea>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_포장개수_41'>포장개수<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text' id='운송_화물_포장개수_41'
+														value='120'>
+												</div>
+												<div class='input-group col-sm-4' id='운송_화물_포장개수_41'>
+													<!--텍스트 옆 SELECT 시작-->
+													<select class='form-control ' id='운송_화물_포장개수_41'>
+														<option>BAllE : BAllE(S)</option>
+														<option>BOBINE : BOBINE(S)</option>
+														<option>BOITE : BOITE(S)</option>
+														<option>BILLE : BILLE(S)</option>
+														<option>BIDON-P : BIDON(S) PLASTIQUE(S)</option>
+														<option>BIDON-M : BIDON(S) METAL(AUX)</option>
+														<option>BOIS : BOIS</option>
+														<option>BOOLSTER : BOOLSTER(S)</option>
+													</select>
+												</div>
+												<!--텍스트 옆 SELECT 종료-->
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_중량_42'>중량<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text' id='운송_화물_중량_42'
+														value='12,340'>
+												</div>
+												<div class='input-group col-sm-4' id='운송_화물_중량_42'>
+													<!--텍스트 옆 SELECT 시작-->
+													<select class='form-control ' id='운송_화물_중량_42'>
+														<option>LTR : 리터 (1 dm3)</option>
+														<option>NMB : 수</option>
+														<option>NAR : 기사 수</option>
+														<option>LPA : 순수한 알콜</option>
+														<option>KGM : 킬로그램</option>
+														<option>CTM : 메트릭 캐럿 (200 mg = 2.10-4 kg)</option>
+														<option>GRM : 그램</option>
+														<option>MTK : 광장</option>
+													</select>
+												</div>
+												<!--텍스트 옆 SELECT 종료-->
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_오일가스여부_43'>오일가스여부<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8'>
+												<input name='운송_화물_오일가스여부_43' id='운송_화물_오일가스여부_43_1'
+													type='radio' value='Y'> <label
+													class='label-for-select ' for='운송_화물_오일가스여부_43'>Y</label> <input
+													name='운송_화물_오일가스여부_43' id='운송_화물_오일가스여부_43_2' type='radio'
+													checked value='N'> <label class='label-for-select '
+													for='운송_화물_오일가스여부_43'>N</label>
+											</div>
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_분할운송구분_44'>분할운송구분<span
+												class='mandatory'> *</span></label>
+
+											<div class='col-sm-8'>
+												<input name='운송_화물_분할운송구분_44' id='운송_화물_분할운송구분_44_1'
+													type='radio' checked value='전체'> <label
+													class='label-for-select ' for='운송_화물_분할운송구분_44'>전체</label>
+												<input name='운송_화물_분할운송구분_44' id='운송_화물_분할운송구분_44_2'
+													type='radio' value='분할'> <label
+													class='label-for-select ' for='운송_화물_분할운송구분_44'>분할</label>
+											</div>
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_분할운송차수_45'>분할운송차수</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-12' id=''>
+													<input class='form-control ' type='text'
+														id='운송_화물_분할운송차수_45' value=''>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_화물_최종분할여부_46'>최종분할여부</label>
+
+											<div class='col-sm-8'>
+												<input name='운송_화물_최종분할여부_46' id='운송_화물_최종분할여부_46_1'
+													type='radio' value='Y'> <label
+													class='label-for-select ' for='운송_화물_최종분할여부_46'>Y</label> <input
+													name='운송_화물_최종분할여부_46' id='운송_화물_최종분할여부_46_2' type='radio'
+													checked value='N'> <label class='label-for-select '
+													for='운송_화물_최종분할여부_46'>N</label>
+											</div>
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+							</div>
+							<!--화물 화면서브그룹 Content 종료-->
+						</div>
+						<!--화면서브그룹 Content Row 종료-->
+
+						<div class='sub-group-title row'>
+							<!--화면서브그룹 Title Row 시작-->
+							<div class='col-sm-12'>
+								<h3 onclick="$('#운송신청서_운송_트랜짓').toggle();" id='트랜짓'>
+									<span class='glyphicon glyphicon-menu-hamburger'></span>트랜짓
+								</h3>
+							</div>
+						</div>
+
+						<div class='sub-group-content row'>
+							<!--화면서브그룹 Content Row 시작-->
+							<div id='운송신청서_운송_트랜짓' class='panel-body'>
+								<!--트랜짓 화면서브그룹 Content 시작-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_트랜짓_관련번호유형_47'>관련번호유형</label>
+
+											<div class='col-sm-8'>
+												<select class='form-control ' id='운송_트랜짓_관련번호유형_47'>
+													<option>IM4 : 수입신고서</option>
+													<option>IM5 : 임시수입신고서</option>
+													<option>IM6 : 재수입신고서</option>
+													<option>IM7 : 보세구역반입신고서</option>
+													<option>IM8 : 트랜짓신고서</option>
+													<option>IM9 : 즉시반출신고서</option>
+													<option>DS4 : 간이수입신고서</option>
+													<option>DS8 : 간이트랜짓신고서</option>
+													<option>EX1 : 완전수출신고서</option>
+													<option>EX2 : 임시수출신고서</option>
+													<option>EX3 : 재수출신고서</option>
+													<option>EX7 : 수출물품보세구역반입신고</option>
+													<option>EX8 : 공동체트랜짓신고서</option>
+													<option>EX9 : 잠정수출신고서</option>
+													<option>LO1 : 수출과세신고서</option>
+													<option>LO4 : 수입과세신고서</option>
+													<option>DS1 : 간이수출신고서</option>
+													<option>VE9 : 공매신고서(수입신고)</option>
+													<option>VP9 : 공매신고서</option>
+												</select>
+											</div>
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 '
+												for='운송_트랜짓_세관절차코드(CAMCIS)_48'>세관절차코드(CAMCIS)</label>
+
+											<div class='col-sm-8'>
+												<select class='form-control ' id='운송_트랜짓_세관절차코드(CAMCIS)_48'>
+													<option selected></option>
+												</select>
+											</div>
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_트랜짓_관련번호_49'>관련번호</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-12' id=''>
+													<input class='form-control ' type='text'
+														id='운송_트랜짓_관련번호_49' value=''>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_트랜짓_출발국가코드_51'>출발국가코드</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text'
+														id='운송_트랜짓_출발국가코드_51' value=''> <a
+														class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_트랜짓_출발국가코드_51'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text'
+														id='운송_트랜짓_출발국가코드_51' value='' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_트랜짓_도착국가코드_52'>도착국가코드</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-4' id=''>
+													<input class='form-control ' type='text'
+														id='운송_트랜짓_도착국가코드_52' value=''> <a
+														class='input-group-addon'
+														href='javascript://return false;'><span
+														class='glyphicon glyphicon-search'></span> </a>
+												</div>
+												<div class='input-group text-center' id='운송_트랜짓_도착국가코드_52'></div>
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text'
+														id='운송_트랜짓_도착국가코드_52' value='' readonly>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--트랜짓 화면서브그룹 Content 종료-->
+							</div>
+							<!--화면서브그룹 Content Row 종료-->
+
+							<div class='sub-group-title row'>
+								<!--화면서브그룹 Title Row 시작-->
+								<div class='col-sm-12'>
+									<h3 onclick="$('#운송신청서_운송_담보').toggle();" id='담보'>
+										<span class='glyphicon glyphicon-menu-hamburger'></span>담보
+									</h3>
+								</div>
+							</div>
+
+							<div class='sub-group-content row'>
+								<!--화면서브그룹 Content Row 시작-->
+								<div id='운송신청서_운송_담보' class='panel-body'>
+									<!--담보 화면서브그룹 Content 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_담보_운송담보번호_53'>운송담보번호</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-12' id=''>
+													<input class='form-control ' type='text'
+														id='운송_담보_운송담보번호_53' value=''>
+												</div>
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--Row 종료-->
+
+								<div class='row'>
+									<!--Row 시작-->
+
+									<div class=col-sm-6>
+
+										<div class='form-group form-inline form-group-sm '>
+											<!--항목내의 폼그룹 시작-->
+
+											<label class='control-label col-sm-4 ' for='운송_담보_담보금액_54'>담보금액</label>
+
+											<div class='col-sm-8 input-group'>
+												<!--항목내의 텍스트 시작-->
+												<div class='input-group col-sm-7' id=''>
+													<input class='form-control ' type='text' id='운송_담보_담보금액_54'
+														value=''>
+												</div>
+												<div class='input-group col-sm-4' id='운송_담보_담보금액_54'>
+													<!--텍스트 옆 SELECT 시작-->
+													<select class='form-control ' id='운송_담보_담보금액_54'>
+														<option>XAF : 세파프랑</option>
+														<option>USD : 미국 달러</option>
+														<option>EUR : 유로</option>
+														<option>CNY : 중국 위안</option>
+														<option>CHF : 스위스 프랑</option>
+													</select>
+												</div>
+												<!--텍스트 옆 SELECT 종료-->
+											</div>
+											<!--항목내의 텍스트 종료-->
+
+										</div>
+										<!--항목내의 폼그룹 종료-->
+
+									</div>
+
+								</div>
+								<!--운송 화면메인그룹 종료-->
+
+							</div>
+							<!--운송 패널 종료-->
+
+							<div class='panel panel-default'>
+								<!--차량 패널 시작-->
+								<div class='panel-heading clearfix'>
+									<h2 onclick="$('#운송신청서_차량').toggle();" id='차량'>
+										<span class='glyphicon glyphicon-chevron-right'></span> 차량
+									</h2>
+								</div>
+
+								<div id='운송신청서_차량' class='panel-body'>
+									<!--차량화면메인그룹 시작-->
+
+								</div>
+								<!--담보 화면서브그룹 Content 종료-->
+							</div>
+							<!--화면서브그룹 Content Row 종료-->
+
+							<div class='row'>
+								<!--버튼그룹 Row 시작-->
+
+								<div class='col-sm-12 text-right'>
+									<!--버튼그룹 시작-->
+
+									<button class='btn btn-default ' type='button' value='T1출력'>
+										<span class='glyphicon glyphicon-print'></span> T1출력
+									</button>
+
+									<button class='btn btn-default ' type='button' value='이동신청서 출력'>
+										<span class='glyphicon glyphicon-print'></span> 이동신청서 출력
+									</button>
+
+									<button class='btn btn-default ' type='button' value='여정확인증출력'>
+										<span class='glyphicon glyphicon-print'></span> 여정확인증출력
+									</button>
+
+									<button class='btn btn-default ' type='button' value='차량정보복사'>
+										<span class='glyphicon glyphicon-save'></span> 차량정보복사
+									</button>
+
+									<button class='btn btn-default ' type='button' value='추가'>
+										<span class='glyphicon glyphicon-plus'></span> 추가
+									</button>
+
+								</div>
+								<!--버튼그룹 종료-->
+
+							</div>
+							<!--버튼그룹 Row 종료-->
+
+							<table class='table table-bordered table-hover'>
+								<thead>
+									<tr>
+										<th class='text-center'>복합운송차수</th>
+										<th class='text-center'>운전자명</th>
+										<th class='text-center'>면허번호</th>
+										<th class='text-center'>운송수단 등록번호</th>
+										<th class='text-center'>차대번호</th>
+										<th class='text-center'>출발지세관</th>
+										<th class='text-center'>도착지세관</th>
+										<th class='text-center'>T1번호</th>
+										<th class='text-center'>포장개수</th>
+										<th class='text-center'>중량</th>
+										<th class='text-center'>총컨테이너수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class=''>1</td>
+										<td class=''>HAMIS ADAM MWANAKUTU</td>
+										<td class=''>4000639966343</td>
+										<td class=''>T218BQR</td>
+										<td class=''>T218BQR</td>
+										<td class=''>CMDLP</td>
+										<td class=''>CMDLY</td>
+										<td class=''>1234324234</td>
+										<td class=''>1,190 [COLIS]</td>
+										<td class=''>29,869 [KGM]</td>
+										<td class=''>1</td>
+									</tr>
+							</table>
+							<div class='row'>
+								<!--Row 시작-->
+
+								<div class=col-sm-12>
+									<!--단일 라인 시작-->
+									<div class='form-group form-inline form-group-sm'>
+										<!--단일 라인 폼그룹 시작-->
+										<label class='control-label label-line ' for='차량___71'></label>
+									</div>
+									<!--단일 라인 폼그룹 종료-->
+								</div>
+								<!--단일 라인 종료-->
+							</div>
+							<!--Row 종료-->
+
+
+							<ul class='nav nav-tabs'>
+								<li class='active'><a data-toggle='tab' href='#차량_육로운송'>육로운송</a></li>
+								<li><a data-toggle='tab' href='#차량_철로운송'>철로운송</a></li>
+								<li><a data-toggle='tab' href='#차량_복합운송'>복합운송</a></li>
+							</ul>
+
+							<div class='tab-content'>
+								<!--탭그룹 시작-->
+
+								<div id='차량_육로운송' class='tab-pane fade in active'>
+									<!--차량_육로운송 탭 시작-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송면허번호_72'>운송면허번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송면허번호_72' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운전자명_73'>운전자명<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__운전자명_73'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__면허번호_74'>면허번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__면허번호_74'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__사업자등록번호_75'>사업자등록번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__사업자등록번호_75' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__여권번호_76'>여권번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__여권번호_76'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송수단국가_78'>운송수단국가<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단국가_78' value='CM'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__운송수단국가_78'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단국가_78' value='Carmeroon' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송수단유형_79'>운송수단유형<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단유형_79' value='승합차'>
+													</div>
+													<div class='input-group col-sm-4' id='차량__운송수단유형_79'>
+														<!--텍스트 옆 SELECT 시작-->
+														<select class='form-control ' id='차량__운송수단유형_79'>
+															<option>승합차</option>
+															<option>트랙터/트래일러</option>
+															<option>트럭</option>
+														</select>
+													</div>
+													<!--텍스트 옆 SELECT 종료-->
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 '
+													for='차량__운송수단 등록번호_80'>운송수단 등록번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단 등록번호_80' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__차대번호_81'>차대번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__차대번호_81'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__트레일러번호_82'>트레일러번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__트레일러번호_82' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__세미트레일러번호_83'>세미트레일러번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__세미트레일러번호_83' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송경로_84'>운송경로<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text' id='차량__운송경로_84'
+															value='DBTBR'>
+													</div>
+													<div class='input-group col-sm-4' id='차량__운송경로_84'>
+														<!--텍스트 옆 SELECT 시작-->
+														<select class='form-control ' id='차량__운송경로_84'>
+															<option>BLGBL : BELABO-GAROUA BOULAI</option>
+															<option>CMKSI :
+																DOUALA-YASSA-EBOLOWA-AMBAM-KYE-OSSI</option>
+															<option>DADCP : Douala Aeroport-Douala CP &
+																Messag.</option>
+															<option>DADLP : Douala Aeroport vers Douala
+																Port</option>
+															<option>DAMK :
+																Douala-Yassa-Ebolowa-Ambam-Abang-M</option>
+															<option>DAYAA : DLA Aeroport - YDE Nsimalen par
+																Air</option>
+															<option>DBKSR :
+																DLA-BFSSAM-FBAN-TIBATI-NDERE-KSERI</option>
+															<option>DBLB1 : Douala Port_Belabo par train</option>
+														</select>
+													</div>
+													<!--텍스트 옆 SELECT 종료-->
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+								</div>
+								<!--차량_육로운송 탭 종료-->
+
+								<div id='차량_철로운송' class='tab-pane fade '>
+									<!--차량_철로운송 탭 시작-->
+
+									<div class='row'>
+										<!--버튼그룹 Row 시작-->
+
+										<div class='col-sm-12 text-right'>
+											<!--버튼그룹 시작-->
+
+											<button class='btn btn-default ' type='button'
+												value='철도스케줄 불러오기'>
+												<span class='glyphicon glyphicon-refresh'></span> 철도스케줄 불러오기
+											</button>
+
+										</div>
+										<!--버튼그룹 종료-->
+
+									</div>
+									<!--버튼그룹 Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송지시번호_86'>운송지시번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송지시번호_86' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운전자명_87'>운전자명<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__운전자명_87'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__면허번호_88'>면허번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__면허번호_88'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__사업자등록번호_89'>사업자등록번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__사업자등록번호_89' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__여권번호_90'>여권번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__여권번호_90'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__왜건번호_91'>왜건번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__왜건번호_91'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__유개화차여부_92'>유개화차여부<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8'>
+													<input name='차량__유개화차여부_92' id='차량__유개화차여부_92_1'
+														type='radio' checked value='Y'> <label
+														class='label-for-select ' for='차량__유개화차여부_92'>Y</label> <input
+														name='차량__유개화차여부_92' id='차량__유개화차여부_92_2' type='radio'
+														value='N'> <label class='label-for-select '
+														for='차량__유개화차여부_92'>N</label>
+												</div>
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+								</div>
+								<!--차량_철로운송 탭 종료-->
+
+								<div id='차량_복합운송' class='tab-pane fade '>
+									<!--차량_복합운송 탭 시작-->
+
+									<div class='row'>
+										<!--버튼그룹 Row 시작-->
+
+										<div class='col-sm-12 text-right'>
+											<!--버튼그룹 시작-->
+
+											<button class='btn btn-default ' type='button'
+												value='철도스케줄 불러오기'>
+												<span class='glyphicon glyphicon-refresh'></span> 철도스케줄 불러오기
+											</button>
+
+										</div>
+										<!--버튼그룹 종료-->
+
+									</div>
+									<!--버튼그룹 Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__복합운송차수_94'>복합운송차수<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__복합운송차수_94' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송방법_95'>운송방법<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8'>
+													<input name='차량__운송방법_95' id='차량__운송방법_95_1' type='radio'
+														checked value='육로운송'> <label
+														class='label-for-select ' for='차량__운송방법_95'>육로운송</label> <input
+														name='차량__운송방법_95' id='차량__운송방법_95_2' type='radio'
+														value='철로운송'> <label class='label-for-select '
+														for='차량__운송방법_95'>철로운송</label>
+												</div>
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송지시번호_96'>운송지시번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송지시번호_96' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송면허번호_97'>운송면허번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송면허번호_97' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운전자명_98'>운전자명<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__운전자명_98'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__면허번호_99'>면허번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__면허번호_99'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__사업자등록번호_100'>사업자등록번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__사업자등록번호_100' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__여권번호_101'>여권번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__여권번호_101'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송수단국가_102'>운송수단국가<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단국가_102' value='CM'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__운송수단국가_102'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단국가_102' value='Carmeroon' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송수단유형_103'>운송수단유형<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단유형_103' value='승합차'>
+													</div>
+													<div class='input-group col-sm-4' id='차량__운송수단유형_103'>
+														<!--텍스트 옆 SELECT 시작-->
+														<select class='form-control ' id='차량__운송수단유형_103'>
+															<option>승합차</option>
+															<option>트랙터/트래일러</option>
+															<option>트럭</option>
+														</select>
+													</div>
+													<!--텍스트 옆 SELECT 종료-->
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 '
+													for='차량__운송수단 등록번호_104'>운송수단 등록번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__운송수단 등록번호_104' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__차대번호_105'>차대번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__차대번호_105'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__트레일러번호_106'>트레일러번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__트레일러번호_106' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 '
+													for='차량__세미트레일러번호_107'>세미트레일러번호</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__세미트레일러번호_107' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__왜건번호_108'>왜건번호<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text' id='차량__왜건번호_108'
+															value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__유개화차여부_109'>유개화차여부<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8'>
+													<input name='차량__유개화차여부_109' id='차량__유개화차여부_109_1'
+														type='radio' checked value='Y'> <label
+														class='label-for-select ' for='차량__유개화차여부_109'>Y</label> <input
+														name='차량__유개화차여부_109' id='차량__유개화차여부_109_2' type='radio'
+														value='N'> <label class='label-for-select '
+														for='차량__유개화차여부_109'>N</label>
+												</div>
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__[출발지]_110'>[출발지]</label>
+
+												<div class='col-sm-8 input-group'>
+													<div class='text-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__[출발지]_110' size='10'>
+													</div>
+												</div>
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__[도착지]_111'>[도착지]</label>
+
+												<div class='col-sm-8 input-group'>
+													<div class='text-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량__[도착지]_111' size='10'>
+													</div>
+												</div>
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__출발지섹터_112'>출발지섹터<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__출발지섹터_112' value='CMDL'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__출발지섹터_112'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__출발지섹터_112' value='DOUALA SECTOR' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__도착지섹터_113'>도착지섹터<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__도착지섹터_113' value='CMDL'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__도착지섹터_113'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__도착지섹터_113' value='DOUALA SECTOR' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__출발지세관_114'>출발지세관<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__출발지세관_114' value='CMDLP'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__출발지세관_114'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__출발지세관_114' value='DOUALA PORT' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__도착지세관_115'>도착지세관<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__도착지세관_115' value='CMDLT'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__도착지세관_115'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__도착지세관_115' value='DOUALA TRANSFERT' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__출발지창고_116'>출발지창고<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__출발지창고_116' value='GLOBAUTO'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__출발지창고_116'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__출발지창고_116' value='STE GLOBAUTO' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__도착지창고_117'>도착지창고</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__도착지창고_117' value='AFRIQUE_CONST'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량__도착지창고_117'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__도착지창고_117' value='STE AFRIQUE CONSTRUCTION'
+															readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량__운송경로_118'>운송경로<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text' id='차량__운송경로_118'
+															value='DBTBR'>
+													</div>
+													<div class='input-group col-sm-4' id='차량__운송경로_118'>
+														<!--텍스트 옆 SELECT 시작-->
+														<select class='form-control ' id='차량__운송경로_118'>
+															<option>BLGBL : BELABO-GAROUA BOULAI</option>
+															<option>CMKSI :
+																DOUALA-YASSA-EBOLOWA-AMBAM-KYE-OSSI</option>
+															<option>DADCP : Douala Aeroport-Douala CP &
+																Messag.</option>
+															<option>DADLP : Douala Aeroport vers Douala
+																Port</option>
+															<option>DAMK :
+																Douala-Yassa-Ebolowa-Ambam-Abang-M</option>
+															<option>DAYAA : DLA Aeroport - YDE Nsimalen par
+																Air</option>
+															<option>DBKSR :
+																DLA-BFSSAM-FBAN-TIBATI-NDERE-KSERI</option>
+															<option>DBLB1 : Douala Port_Belabo par train</option>
+														</select>
+													</div>
+													<!--텍스트 옆 SELECT 종료-->
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 '
+													for='차량__복합운송 운송수단 신청인_119'>복합운송 운송수단 신청인</label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량__복합운송 운송수단 신청인_119' value=''> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center'
+														id='차량__복합운송 운송수단 신청인_119'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량__복합운송 운송수단 신청인_119' value='' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+								</div>
+								<!--차량_복합운송 탭 종료-->
+
+							</div>
+							<!--탭그룹 종료-->
+
+							<div class='row'>
+								<!--Row 시작-->
+
+								<div class=col-sm-12>
+									<!--단일 라인 시작-->
+									<div class='form-group form-inline form-group-sm'>
+										<!--단일 라인 폼그룹 시작-->
+										<label class='control-label label-line ' for='차량___120'></label>
+									</div>
+									<!--단일 라인 폼그룹 종료-->
+								</div>
+								<!--단일 라인 종료-->
+							</div>
+							<!--Row 종료-->
+
+
+							<div class='sub-group-title row'>
+								<!--화면서브그룹 Title Row 시작-->
+								<div class='col-sm-12'>
+									<h3 onclick="$('#운송신청서_차량_적재화물').toggle();" id='적재화물'>
+										<span class='glyphicon glyphicon-menu-hamburger'></span>적재화물
+									</h3>
+								</div>
+							</div>
+
+							<div class='sub-group-content row'>
+								<!--화면서브그룹 Content Row 시작-->
+								<div id='운송신청서_차량_적재화물' class='panel-body'>
+									<!--적재화물 화면서브그룹 Content 시작-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 '
+													for='차량_적재화물_포장개수_121'>포장개수<span class='mandatory'>
+														*</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량_적재화물_포장개수_121' value='120'>
+													</div>
+													<div class='input-group col-sm-4' id='차량_적재화물_포장개수_121'>
+														<!--텍스트 옆 SELECT 시작-->
+														<select class='form-control ' id='차량_적재화물_포장개수_121'>
+															<option>BAllE : BAllE(S)</option>
+															<option>BOBINE : BOBINE(S)</option>
+															<option>BOITE : BOITE(S)</option>
+															<option>BILLE : BILLE(S)</option>
+															<option>BIDON-P : BIDON(S) PLASTIQUE(S)</option>
+															<option>BIDON-M : BIDON(S) METAL(AUX)</option>
+															<option>BOIS : BOIS</option>
+															<option>BOOLSTER : BOOLSTER(S)</option>
+														</select>
+													</div>
+													<!--텍스트 옆 SELECT 종료-->
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 ' for='차량_적재화물_중량_122'>중량<span
+													class='mandatory'> *</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량_적재화물_중량_122' value=''>
+													</div>
+													<div class='input-group col-sm-4' id='차량_적재화물_중량_122'>
+														<!--텍스트 옆 SELECT 시작-->
+														<select class='form-control ' id='차량_적재화물_중량_122'>
+															<option>LTR : 리터 (1 dm3)</option>
+															<option>NMB : 수</option>
+															<option>NAR : 기사 수</option>
+															<option>LPA : 순수한 알콜</option>
+															<option>KGM : 킬로그램</option>
+															<option>CTM : 메트릭 캐럿 (200 mg = 2.10-4 kg)</option>
+															<option>GRM : 그램</option>
+															<option>MTK : 광장</option>
+														</select>
+													</div>
+													<!--텍스트 옆 SELECT 종료-->
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+								</div>
+								<!--적재화물 화면서브그룹 Content 종료-->
+							</div>
+							<!--화면서브그룹 Content Row 종료-->
+
+							<div class='row'>
+								<!--Row 시작-->
+
+								<div class=col-sm-12>
+									<!--단일 라인 시작-->
+									<div class='form-group form-inline form-group-sm'>
+										<!--단일 라인 폼그룹 시작-->
+										<label class='control-label label-line ' for='차량___123'></label>
+									</div>
+									<!--단일 라인 폼그룹 종료-->
+								</div>
+								<!--단일 라인 종료-->
+							</div>
+							<!--Row 종료-->
+
+
+							<div class='sub-group-title row'>
+								<!--화면서브그룹 Title Row 시작-->
+								<div class='col-sm-12'>
+									<h3 onclick="$('#운송신청서_차량_첨부서류').toggle();" id='첨부서류'>
+										<span class='glyphicon glyphicon-menu-hamburger'></span>첨부서류
+									</h3>
+								</div>
+							</div>
+
+							<div class='sub-group-content row'>
+								<!--화면서브그룹 Content Row 시작-->
+								<div id='운송신청서_차량_첨부서류' class='panel-body'>
+									<!--첨부서류 화면서브그룹 Content 시작-->
+
+									<div class='row'>
+										<!--버튼그룹 Row 시작-->
+
+										<div class='col-sm-12 text-right'>
+											<!--버튼그룹 시작-->
+
+											<button class='btn btn-default ' type='button' value='추가'>
+												<span class='glyphicon glyphicon-plus'></span> 추가
+											</button>
+
+											<button class='btn btn-default ' type='button' value='저장'>
+												<span class='glyphicon glyphicon-save'></span> 저장
+											</button>
+
+											<button class='btn btn-default ' type='button' value='삭제'>
+												<span class='glyphicon glyphicon-trash'></span> 삭제
+											</button>
+
+										</div>
+										<!--버튼그룹 종료-->
+
+									</div>
+									<!--버튼그룹 Row 종료-->
+
+									<table class='table table-bordered table-hover'>
+										<thead>
+											<tr>
+												<th class='text-center'>선택</th>
+												<th class='text-center'>문서번호</th>
+												<th class='text-center'>문서유형</th>
+												<th class='text-center'>첨부파일명</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class=''>1|2</td>
+												<td class=''>LVI0000001|LVI0000002</td>
+												<td class=''>LVI : Lettre de Voiture Internationale|LVI
+													: Lettre de Voiture Internationale</td>
+												<td class=''>LVI1234.pdf|LVI22222.pdf</td>
+											</tr>
+											<tr>
+												<td class=''>1|2</td>
+												<td class=''>LVI0000001|LVI0000002</td>
+												<td class=''>LVI : Lettre de Voiture Internationale|LVI
+													: Lettre de Voiture Internationale</td>
+												<td class=''>LVI1234.pdf|LVI22222.pdf</td>
+											</tr>
+									</table>
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 '
+													for='차량_첨부서류_문서유형_131'>문서유형<span class='mandatory'>
+														*</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-4' id=''>
+														<input class='form-control ' type='text'
+															id='차량_첨부서류_문서유형_131' value='LVI'> <a
+															class='input-group-addon'
+															href='javascript://return false;'><span
+															class='glyphicon glyphicon-search'></span> </a>
+													</div>
+													<div class='input-group text-center' id='차량_첨부서류_문서유형_131'></div>
+													<div class='input-group col-sm-7' id=''>
+														<input class='form-control ' type='text'
+															id='차량_첨부서류_문서유형_131'
+															value='Lettre de Voiture Internationale' readonly>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+										<div class=col-sm-6>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-4 '
+													for='차량_첨부서류_문서번호_132'>문서번호<span class='mandatory'>
+														*</span></label>
+
+												<div class='col-sm-8 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<input class='form-control ' type='text'
+															id='차량_첨부서류_문서번호_132' value=''>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-12>
+
+											<div class='form-group form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-2 '
+													for='차량_첨부서류_문서설명_133'>문서설명<span class='mandatory'>
+														*</span></label>
+
+												<div class='col-sm-10 input-group'>
+													<!--항목내의 텍스트 시작-->
+													<div class='input-group col-sm-12' id=''>
+														<textarea class='form-control y' rows='4'
+															id='차량_첨부서류_문서설명_133'></textarea>
+													</div>
+												</div>
+												<!--항목내의 텍스트 종료-->
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+									<div class='row'>
+										<!--Row 시작-->
+
+										<div class=col-sm-12>
+
+											<div class='form-group form-inline form-group-sm '>
+												<!--항목내의 폼그룹 시작-->
+
+												<label class='control-label col-sm-2 '
+													for='차량_첨부서류_첨부문서_134'>첨부문서<span class='mandatory'>
+														*</span></label> <input class='form-control input-file y' type='text'
+													id='차량_첨부서류_첨부문서_134' value='' readonly> <label
+													class='input-group-btn'> <span
+													class='btn btn-primary btn-sm'> &hellip; <span
+														class='glyphicon glyphicon-open-file'><input
+															type='file' style='display: none;' multiple> </span></label>
+
+											</div>
+											<!--항목내의 폼그룹 종료-->
+
+										</div>
+
+									</div>
+									<!--Row 종료-->
+
+								</div>
+								<!--첨부서류 화면서브그룹 Content 종료-->
+							</div>
+							<!--화면서브그룹 Content Row 종료-->
+
+							<div class='sub-group-title row'>
+								<!--화면서브그룹 Title Row 시작-->
+								<div class='col-sm-12'>
+									<h3 onclick="$('#운송신청서_차량_컨테이너').toggle();" id='컨테이너'>
+										<span class='glyphicon glyphicon-menu-hamburger'></span>컨테이너
+									</h3>
+								</div>
+							</div>
+
+							<div class='sub-group-content row'>
+								<!--화면서브그룹 Content Row 시작-->
+								<div id='운송신청서_차량_컨테이너' class='panel-body'>
+									<!--컨테이너 화면서브그룹 Content 시작-->
+
+									<div class='row'>
+										<!--버튼그룹 Row 시작-->
+
+										<div class='col-sm-12 text-right'>
+											<!--버튼그룹 시작-->
+
+											<button class='btn btn-default ' type='button' value='추가'>
+												<span class='glyphicon glyphicon-plus'></span> 추가
+											</button>
+
+											<button class='btn btn-default ' type='button' value='삭제'>
+												<span class='glyphicon glyphicon-trash'></span> 삭제
+											</button>
+
+										</div>
+										<!--버튼그룹 종료-->
+
+									</div>
+									<!--버튼그룹 Row 종료-->
+
+								</div>
+								<!--컨테이너 화면서브그룹 Content 종료-->
+							</div>
+							<!--화면서브그룹 Content Row 종료-->
+
+							<table class='table table-bordered table-hover'>
+								<thead>
+									<tr>
+										<th class='text-center'>선택</th>
+										<th class='text-center'>컨테이너번호</th>
+										<th class='text-center'>컨테이너구분</th>
+										<th class='text-center'>컨테이너적입상태</th>
+										<th class='text-center'>봉인번호1</th>
+										<th class='text-center'>봉인번호2</th>
+										<th class='text-center'>봉인번호3</th>
+										<th class='text-center'>포장개수</th>
+										<th class='text-center'>중량</th>
+									</tr>
+								</thead>
+								<tbody>
+							</table>
+							<div class='row'>
+								<!--버튼그룹 Row 시작-->
+
+								<div class='col-sm-12 text-right'>
+									<!--버튼그룹 시작-->
+
+									<button class='btn btn-default ' type='button' value='차량정보저장'>
+										<span class='glyphicon glyphicon-save'></span> 차량정보저장
+									</button>
+
+									<button class='btn btn-default ' type='button' value='차량정보삭제'>
+										<span class='glyphicon glyphicon-delete'></span> 차량정보삭제
+									</button>
+
+								</div>
+								<!--버튼그룹 종료-->
+
+							</div>
+							<!--버튼그룹 Row 종료-->
+
+						</div>
+						<!--차량 화면메인그룹 종료-->
+
+					</div>
+					<!--차량 패널 종료-->
+
+					<div class='row'>
+						<!--버튼그룹 Row 시작-->
+
+						<div class='col-sm-12 text-right'>
+							<!--버튼그룹 시작-->
+
+							<button class='btn btn-default btn-left' type='button' value='신규'>
+								<span class='glyphicon glyphicon-new-window'></span> 신규
+							</button>
+
+							<button class='btn btn-default ' type='button' value='임시저장'>
+								<span class='glyphicon glyphicon-save'></span> 임시저장
+							</button>
+
+							<button class='btn btn-default ' type='button' value='유효성검증'>
+								<span class='glyphicon glyphicon-ok'></span> 유효성검증
+							</button>
+
+							<button class='btn btn-default ' type='button' value='전송'>
+								<span class='glyphicon glyphicon-share-alt'></span> 전송
+							</button>
+
+						</div>
+						<!--버튼그룹 종료-->
+
+					</div>
+					<!--버튼그룹 Row 종료-->
+
+				</div>
+			</div>
+			<!--화면메인그룹 Row 종료-->
+
+		</div>
+		<!--최상위 컨테이너 종료-->
+</body>
+</html>

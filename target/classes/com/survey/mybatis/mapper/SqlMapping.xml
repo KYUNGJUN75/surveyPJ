@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sqlmap">
+    <!-- VO 생성 -->
+    <select id="selectMakeVO" parameterType="sqlMapVO" resultType="sqlMapVO">
+    	SELECT 
+                A.TABLE_NAME         AS tableName
+              , A.COLUMN_NAME         AS columnName
+              , A.DATA_TYPE         AS dataType
+              , A.DATA_LENGTH         AS dataLength
+              , A.DATA_PRECISION     AS dataPrecision
+              , A.DATA_SCALE         AS dataScale
+              , A.NULLABLE             AS nullable
+              , A.COLUMN_ID             AS columnId
+              , NVL(B.LBL_NM, D.COMMENTS)             AS koCmmt
+              , B.FR_LBL_NM          AS frCmmt
+              , B.EN_LBL_NM          AS enCmmt
+              , C.CONSTRAINT_TYPE AS contType
+              , (SELECT COMMENTS FROM ALL_TAB_COMMENTS WHERE TABLE_NAME = #{tblId}) AS tabCmmt
+        FROM    ALL_TAB_COLS A
+              , (SELECT A.LBL_ID
+		              , B.LBL_NM
+		              , A.LBL_TPCD
+		              , A.BSOP_CLSF_CD
+		              , (SELECT LBL_NM
+		                   FROM TB_COM_LBL_LANG
+		                  WHERE LANG_CD = 'FR'
+		                    AND LBL_ID = A.LBL_ID) AS FR_LBL_NM  
+		              , (SELECT LBL_NM
+		                   FROM TB_COM_LBL_LANG
+		                  WHERE LANG_CD = 'EN'
+		                    AND LBL_ID = A.LBL_ID) AS EN_LBL_NM        
+		          FROM TB_COM_LBL      A,
+		               TB_COM_LBL_LANG B
+		         WHERE A.LBL_ID  = B.LBL_ID
+		           AND A.DEL_YN  = 'N'
+		           AND A.LBL_TPCD = 'L'
+		           AND B.DEL_YN  = 'N'
+		           AND B.LANG_CD = 'KO'
+		         ) B
+              , (SELECT 
+                        C.COLUMN_NAME
+                      , S.CONSTRAINT_TYPE
+                      , C.TABLE_NAME
+                <!--  
+                FROM    USER_CONS_COLUMNS C
+                      , USER_CONSTRAINTS S
+                -->      
+                FROM    ALL_CONS_COLUMNS C
+                      , ALL_CONSTRAINTS S
+                WHERE  1=1
+                AND    C.CONSTRAINT_NAME = S.CONSTRAINT_NAME 
+                AND    S.CONSTRAINT_TYPE = 'P' 
+                AND    C.TABLE_NAME = #{tblId}) C
+              , ALL_COL_COMMENTS D
+        WHERE 1=1
+        AND   A.TABLE_NAME = #{tblId}
+        AND   'L_'||A.COLUMN_NAME = B.LBL_ID(+)
+        AND   A.TABLE_NAME = C.TABLE_NAME(+)
+        AND   A.COLUMN_NAME = C.COLUMN_NAME(+)
+        AND   A.TABLE_NAME = D.TABLE_NAME
+        AND   A.COLUMN_NAME = D.COLUMN_NAME
+        ORDER BY A.COLUMN_ID
+        
+    </select>
+    
+    <!-- VO 생성 -->
+    <select id="selectMakeVO_IN" parameterType="sqlMapVO" resultType="sqlMapVO">
+    	SELECT 
+                A.TABLE_NAME         AS tableName
+              , A.COLUMN_NAME         AS columnName
+              , A.DATA_TYPE         AS dataType
+              , A.DATA_LENGTH         AS dataLength
+              , A.DATA_PRECISION     AS dataPrecision
+              , A.DATA_SCALE         AS dataScale
+              , A.NULLABLE             AS nullable
+              , A.COLUMN_ID             AS columnId
+              , NVL(B.LBL_NM, D.COMMENTS)             AS koCmmt
+              , B.FR_LBL_NM          AS frCmmt
+              , B.EN_LBL_NM          AS enCmmt
+              , C.CONSTRAINT_TYPE AS contType
+              , (SELECT COMMENTS FROM ALL_TAB_COMMENTS WHERE TABLE_NAME = #{tblId}) AS tabCmmt
+        FROM    ALL_TAB_COLS@LN_ICAR A
+              , (SELECT A.LBL_ID
+		              , B.LBL_NM
+		              , A.LBL_TPCD
+		              , A.BSOP_CLSF_CD
+		              , (SELECT LBL_NM
+		                   FROM TB_COM_LBL_LANG
+		                  WHERE LANG_CD = 'FR'
+		                    AND LBL_ID = A.LBL_ID) AS FR_LBL_NM  
+		              , (SELECT LBL_NM
+		                   FROM TB_COM_LBL_LANG
+		                  WHERE LANG_CD = 'EN'
+		                    AND LBL_ID = A.LBL_ID) AS EN_LBL_NM        
+		          FROM TB_COM_LBL      A,
+		               TB_COM_LBL_LANG B
+		         WHERE A.LBL_ID  = B.LBL_ID
+		           AND A.DEL_YN  = 'N'
+		           AND A.LBL_TPCD = 'L'
+		           AND B.DEL_YN  = 'N'
+		           AND B.LANG_CD = 'KO'
+		         ) B
+              , (SELECT 
+                        C.COLUMN_NAME
+                      , S.CONSTRAINT_TYPE
+                      , C.TABLE_NAME
+                <!--  
+                FROM    USER_CONS_COLUMNS@LN_ICAR C
+                      , USER_CONSTRAINTS@LN_ICAR S
+                -->      
+                FROM    ALL_CONS_COLUMNS@LN_ICAR C
+                      , ALL_CONSTRAINTS@LN_ICAR S
+                WHERE  1=1
+                AND    C.CONSTRAINT_NAME = S.CONSTRAINT_NAME 
+                AND    S.CONSTRAINT_TYPE = 'P' 
+                AND    C.TABLE_NAME = #{vrfcTblId}) C
+              , ALL_COL_COMMENTS@LN_ICAR D
+        WHERE 1=1
+        AND   A.TABLE_NAME = #{vrfcTblId}
+        AND   'L_'||A.COLUMN_NAME = B.LBL_ID(+)
+        AND   A.TABLE_NAME = C.TABLE_NAME(+)
+        AND   A.COLUMN_NAME = C.COLUMN_NAME(+)
+        AND   A.TABLE_NAME = D.TABLE_NAME
+        AND   A.COLUMN_NAME = D.COLUMN_NAME
+        ORDER BY A.COLUMN_ID
+        
+    </select>
+    
+    <insert id="mergeInsertComVrfcBase" parameterType="com.pjt.survey.vo.ComVrfcBaseVo">
+		MERGE INTO TB_COM_VRFC_BASE
+		USING DUAL
+		ON (
+			DOC_CD = #{docCd}
+		)
+		WHEN MATCHED THEN
+		     UPDATE SET
+					  LAST_CHPR_ID = #{lastChprId}
+					, LAST_CHG_DTTM = SYSTIMESTAMP
+				<if test="bfhnVrfcPrgmId != null">
+					, BFHN_VRFC_PRGM_ID = #{bfhnVrfcPrgmId}
+				</if>
+				<if test="bsopClsfCd != null">
+					, BSOP_CLSF_CD = #{bsopClsfCd}
+				</if>
+				<if test="docNm != null">
+					, DOC_NM = #{docNm}
+				</if>
+				<if test="bfhnVrfcYn != null">
+					, BFHN_VRFC_YN = #{bfhnVrfcYn}
+				</if>
+				<if test="delYn != null">
+					, DEL_YN = #{delYn}
+				</if>
+		WHEN NOT MATCHED THEN
+		     INSERT (
+						DOC_CD
+						, BFHN_VRFC_PRGM_ID
+						, BSOP_CLSF_CD
+						, DOC_NM
+						, BFHN_VRFC_YN
+						, DEL_YN
+						, FRST_REGST_ID
+						, FRST_RGSR_DTTM
+						, LAST_CHPR_ID
+						, LAST_CHG_DTTM
+				) VALUES ( 
+					#{docCd}
+					, #{bfhnVrfcPrgmId}
+					, #{bsopClsfCd}
+					, #{docNm}
+					, #{bfhnVrfcYn}
+					, #{delYn}
+					, #{frstRegstId}
+					, SYSTIMESTAMP
+					, #{lastChprId}
+					, SYSTIMESTAMP
+				)
+		</insert>
+    
+    <delete id="deleteComVrfcBaseDtl" parameterType="com.pjt.survey.vo.ComVrfcBaseVo">
+    BEGIN
+		DELETE TB_COM_VRFC_BASE_D_LANG
+    	WHERE DOC_CD = #{docCd}
+		AND  TRGT_TBL_NM = #{trgtTblNm}
+		;
+    	DELETE TB_COM_VRFC_BASE_D
+    	WHERE DOC_CD = #{docCd}
+		AND  TRGT_TBL_NM = #{trgtTblNm}
+		;
+	END;
+	</delete>
+    
+    <insert id="mergeInsertComVrfcBaseDtl" parameterType="com.pjt.survey.vo.ComVrfcBaseDtlVo">
+    BEGIN
+    
+		MERGE INTO TB_COM_VRFC_BASE_D
+		USING DUAL
+		ON (
+			 DOC_CD = #{docCd}
+		AND  TRGT_TBL_NM = #{trgtTblNm}
+		AND  TRGT_COL_NM = #{trgtColNm}
+		)
+		WHEN MATCHED THEN
+		     UPDATE SET
+					  LAST_CHPR_ID = #{lastChprId}
+					, LAST_CHG_DTTM = SYSTIMESTAMP
+				<if test="clusSortOrdr != null">
+					, CLUS_SORT_ORDR = #{clusSortOrdr}
+				</if>
+				<if test="comnCdVrfcYn != null">
+					, COMN_CD_VRFC_YN = #{comnCdVrfcYn}
+				</if>
+				<if test="comnCd != null">
+					, COMN_CD = #{comnCd}
+				</if>
+				<if test="indvCdVrfcYn != null">
+					, INDV_CD_VRFC_YN = #{indvCdVrfcYn}
+				</if>
+				<if test="indvCd != null">
+					, INDV_CD = #{indvCd}
+				</if>
+				<if test="indvCdTblNm != null">
+					, INDV_CD_TBL_NM = #{indvCdTblNm}
+				</if>
+				<if test="indvCdColNm != null">
+					, INDV_CD_COL_NM = #{indvCdColNm}
+				</if>
+				<if test="indvCdAditQuryCn != null">
+					, INDV_CD_ADIT_QURY_CN = #{indvCdAditQuryCn}
+				</if>
+				<if test="esntInpVrfcYn != null">
+					, ESNT_INP_VRFC_YN = #{esntInpVrfcYn}
+				</if>
+				<if test="amtQtyVrfcYn != null">
+					, AMT_QTY_VRFC_YN = #{amtQtyVrfcYn}
+				</if>
+				<if test="dtVldtVrfcYn != null">
+					, DT_VLDT_VRFC_YN = #{dtVldtVrfcYn}
+				</if>
+				<if test="dtVldtTpCn != null">
+					, DT_VLDT_TP_CN = #{dtVldtTpCn}
+				</if>
+				<if test="numVldtVrfcYn != null">
+					, NUM_VLDT_VRFC_YN = #{numVldtVrfcYn}
+				</if>
+				<if test="alRsco != null">
+					, AL_RSCO = #{alRsco}
+				</if>
+				<if test="dcmlUndrRsco != null">
+					, DCML_UNDR_RSCO = #{dcmlUndrRsco}
+				</if>
+				<if test="delYn != null">
+					, DEL_YN = #{delYn}
+				</if>
+				<if test="erkyOrdr != null">
+					, ERKY_ORDR = #{erkyOrdr}
+				</if>
+				<if test="prtlVrfcYn != null">
+					, PRTL_VRFC_YN = #{prtlVrfcYn}
+				</if>
+		WHEN NOT MATCHED THEN
+		     INSERT (
+						DOC_CD
+						, TRGT_TBL_NM
+						, TRGT_COL_NM
+						, CLUS_SORT_ORDR
+						, COMN_CD_VRFC_YN
+						, COMN_CD
+						, INDV_CD_VRFC_YN
+						, INDV_CD
+						, INDV_CD_TBL_NM
+						, INDV_CD_COL_NM
+						, INDV_CD_ADIT_QURY_CN
+						, ESNT_INP_VRFC_YN
+						, AMT_QTY_VRFC_YN
+						, DT_VLDT_VRFC_YN
+						, DT_VLDT_TP_CN
+						, NUM_VLDT_VRFC_YN
+						, AL_RSCO
+						, DCML_UNDR_RSCO
+						, ERKY_ORDR
+						, PRTL_VRFC_YN
+						, DEL_YN
+						, FRST_REGST_ID
+						, FRST_RGSR_DTTM
+						, LAST_CHPR_ID
+						, LAST_CHG_DTTM
+				) VALUES ( 
+					#{docCd}
+					, #{trgtTblNm}
+					, #{trgtColNm}
+					, #{clusSortOrdr}
+					, #{comnCdVrfcYn}
+					, #{comnCd}
+					, #{indvCdVrfcYn}
+					, #{indvCd}
+					, #{indvCdTblNm}
+					, #{indvCdColNm}
+					, #{indvCdAditQuryCn}
+					, #{esntInpVrfcYn}
+					, #{amtQtyVrfcYn}
+					, #{dtVldtVrfcYn}
+					, #{dtVldtTpCn}
+					, #{numVldtVrfcYn}
+					, #{alRsco}
+					, #{dcmlUndrRsco}
+					, #{erkyOrdr}
+					, 'Y'
+					, #{delYn}
+					, #{frstRegstId}
+					, SYSTIMESTAMP
+					, #{lastChprId}
+					, SYSTIMESTAMP
+				);
+				
+		MERGE INTO TB_COM_VRFC_BASE_D_LANG
+		USING DUAL
+		ON (
+			 DOC_CD = #{docCd}
+		AND  TRGT_TBL_NM = #{trgtTblNm}
+		AND  TRGT_COL_NM = #{trgtColNm}
+		AND  LANG_CD = 'KO'
+		)
+		WHEN MATCHED THEN
+		     UPDATE SET
+					  LAST_CHPR_ID = #{lastChprId}
+					, LAST_CHG_DTTM = SYSTIMESTAMP
+				<if test="koColName != null">
+					, BFHN_VRFC_CLUS_NM = #{koColName}
+				</if>
+		WHEN NOT MATCHED THEN
+		     INSERT (
+						DOC_CD
+						, TRGT_TBL_NM
+						, TRGT_COL_NM
+						, LANG_CD
+						, BFHN_VRFC_CLUS_NM
+						, DEL_YN
+						, FRST_REGST_ID
+						, FRST_RGSR_DTTM
+						, LAST_CHPR_ID
+						, LAST_CHG_DTTM
+				) VALUES ( 
+					#{docCd}
+					, #{trgtTblNm}
+					, #{trgtColNm}
+					, 'KO'
+					, #{koColName}
+					, 'N'
+					, #{frstRegstId}
+					, SYSTIMESTAMP
+					, #{lastChprId}
+					, SYSTIMESTAMP
+				);
+				
+		MERGE INTO TB_COM_VRFC_BASE_D_LANG
+		USING DUAL
+		ON (
+			 DOC_CD = #{docCd}
+		AND  TRGT_TBL_NM = #{trgtTblNm}
+		AND  TRGT_COL_NM = #{trgtColNm}
+		AND  LANG_CD = 'EN'
+		)
+		WHEN MATCHED THEN
+		     UPDATE SET
+					  LAST_CHPR_ID = #{lastChprId}
+					, LAST_CHG_DTTM = SYSTIMESTAMP
+				<if test="enColName != null">
+					, BFHN_VRFC_CLUS_NM = #{enColName}
+				</if>
+		WHEN NOT MATCHED THEN
+		     INSERT (
+						DOC_CD
+						, TRGT_TBL_NM
+						, TRGT_COL_NM
+						, LANG_CD
+						, BFHN_VRFC_CLUS_NM
+						, DEL_YN
+						, FRST_REGST_ID
+						, FRST_RGSR_DTTM
+						, LAST_CHPR_ID
+						, LAST_CHG_DTTM
+				) VALUES ( 
+					#{docCd}
+					, #{trgtTblNm}
+					, #{trgtColNm}
+					, 'EN'
+					, #{enColName}
+					, 'N'
+					, #{frstRegstId}
+					, SYSTIMESTAMP
+					, #{lastChprId}
+					, SYSTIMESTAMP
+				);
+				
+		MERGE INTO TB_COM_VRFC_BASE_D_LANG
+		USING DUAL
+		ON (
+			 DOC_CD = #{docCd}
+		AND  TRGT_TBL_NM = #{trgtTblNm}
+		AND  TRGT_COL_NM = #{trgtColNm}
+		AND  LANG_CD = 'FR'
+		)
+		WHEN MATCHED THEN
+		     UPDATE SET
+					  LAST_CHPR_ID = #{lastChprId}
+					, LAST_CHG_DTTM = SYSTIMESTAMP
+				<if test="frColName != null">
+					, BFHN_VRFC_CLUS_NM = #{frColName}
+				</if>
+		WHEN NOT MATCHED THEN
+		     INSERT (
+						DOC_CD
+						, TRGT_TBL_NM
+						, TRGT_COL_NM
+						, LANG_CD
+						, BFHN_VRFC_CLUS_NM
+						, DEL_YN
+						, FRST_REGST_ID
+						, FRST_RGSR_DTTM
+						, LAST_CHPR_ID
+						, LAST_CHG_DTTM
+				) VALUES ( 
+					#{docCd}
+					, #{trgtTblNm}
+					, #{trgtColNm}
+					, 'FR'
+					, #{frColName}
+					, 'N'
+					, #{frstRegstId}
+					, SYSTIMESTAMP
+					, #{lastChprId}
+					, SYSTIMESTAMP
+				);
+		END;	
+		</insert>
+    
+    <!-- 포탈, 내부 테이블 매핑 -->
+    <select id="selectBusiTableMap" parameterType="java.util.HashMap" resultType="sqlMapVO">
+    
+        SELECT  A.COLUMN_NAME AS columnName
+              , B.COMMENTS
+              , C.CONSTRAINT_TYPE AS contType
+		FROM    ALL_TAB_COLS A
+              , ALL_COL_COMMENTS B
+              , (SELECT 
+                        C.COLUMN_NAME
+                      , S.CONSTRAINT_TYPE
+                      , C.TABLE_NAME
+                FROM    ALL_CONS_COLUMNS C
+                      , ALL_CONSTRAINTS S
+                WHERE  1=1
+                AND    C.CONSTRAINT_NAME = S.CONSTRAINT_NAME 
+                AND    S.CONSTRAINT_TYPE = 'P' 
+                AND    C.TABLE_NAME = #{tblId}) C
+		WHERE   1=1
+        AND     A.TABLE_NAME = #{tblId}
+        AND     A.TABLE_NAME = B.TABLE_NAME
+        AND     A.COLUMN_NAME = B.COLUMN_NAME
+        AND     A.TABLE_NAME = C.TABLE_NAME(+)
+        AND     A.COLUMN_NAME =C.COLUMN_NAME(+)
+        ORDER BY COLUMN_ID
+    </select>
+    
+    <!-- 포탈, 내부 테이블 매핑 -->
+    <select id="selectBusiInTableMap" parameterType="java.util.HashMap" resultType="sqlMapVO">
+    
+        SELECT  A.COLUMN_NAME AS columnName
+              , B.COMMENTS
+              , C.CONSTRAINT_TYPE AS contType
+		FROM    ALL_TAB_COLS@LN_ICAR A
+              , ALL_COL_COMMENTS@LN_ICAR B
+              , (SELECT 
+                        C.COLUMN_NAME
+                      , S.CONSTRAINT_TYPE
+                      , C.TABLE_NAME
+                FROM    ALL_CONS_COLUMNS@LN_ICAR C
+                      , ALL_CONSTRAINTS@LN_ICAR S
+                WHERE  1=1
+                AND    C.CONSTRAINT_NAME = S.CONSTRAINT_NAME 
+                AND    S.CONSTRAINT_TYPE = 'P' 
+                AND    C.TABLE_NAME = #{tblId}) C
+		WHERE   1=1
+        AND     A.TABLE_NAME = #{tblId}
+        AND     A.TABLE_NAME = B.TABLE_NAME
+        AND     A.COLUMN_NAME = B.COLUMN_NAME
+        AND     A.TABLE_NAME = C.TABLE_NAME(+)
+        AND     A.COLUMN_NAME =C.COLUMN_NAME(+)
+        ORDER BY COLUMN_ID
+    </select>
+    
+    <select id="selectLabelId" parameterType="comLabelVo" resultType="comLabelVo">
+        SELECT A.LBL_ID       AS lblId     ,
+               B.LBL_NM       AS lblNm     ,
+               A.LBL_TPCD     AS lblTpcd   ,
+               A.BSOP_CLSF_CD AS bsopClsfCd,
+               (SELECT LBL_NM
+                  FROM TB_COM_LBL_LANG
+                 WHERE LANG_CD = 'FR'
+                   AND LBL_ID = A.LBL_ID) AS frLblNm  
+          FROM TB_COM_LBL      A,
+               TB_COM_LBL_LANG B
+         WHERE A.LBL_ID  = B.LBL_ID
+           AND A.DEL_YN  = 'N'
+           AND B.DEL_YN  = 'N'
+           AND B.LBL_NM  LIKE '%' || #{lblNm} || '%'
+           AND B.LANG_CD = NVL(#{langCd,jdbcType=VARCHAR},'KO')
+    </select>
+    
+    <select id="selectComVrfcBaseDCol" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    /* selectComVrfcBaseDCol */
+        SELECT 
+              A.COLUMN_NAME AS COLUMNID
+		    , B.COMMENTS AS COLUMNNM 
+		FROM  ALL_TAB_COLS A
+		    , ALL_COL_COMMENTS B
+		WHERE A.TABLE_NAME = 'TB_COM_VRFC_BASE_D'
+		AND   A.TABLE_NAME = B.TABLE_NAME
+		AND   A.COLUMN_NAME = B.COLUMN_NAME
+		AND   A.COLUMN_NAME NOT IN ('DEL_YN','FRST_REGST_ID','FRST_RGSR_DTTM','LAST_CHPR_ID','LAST_CHG_DTTM')
+		ORDER BY A.COLUMN_ID
+    </select>
+    
+    <select id="selectComVrfcBaseDList" parameterType="java.util.HashMap" resultType="vrfcBaseDVo">
+	/* selectComVrfcBaseDList */
+	    
+	    SELECT
+	          A.DOC_CD                          AS docCd                          
+	        , A.TRGT_TBL_NM                     AS trgtTblNm                          
+	        , A.TRGT_COL_NM                     AS trgtColNm                          
+	        , A.CLUS_SORT_ORDR                  AS clusSortOrdr                          
+	        , A.COMN_CD_VRFC_YN                 AS comnCdVrfcYn                          
+	        , A.COMN_CD                         AS comnCd                          
+	        , A.INDV_CD_VRFC_YN                 AS indvCdVrfcYn                          
+	        , A.INDV_CD                         AS indvCd                          
+	        , A.INDV_CD_TBL_NM                  AS indvCdTblNm                          
+	        , A.INDV_CD_COL_NM                  AS indvCdColNm                          
+	        , A.INDV_CD_ADIT_QURY_CN            AS indvCdAditQuryCn                          
+	        , A.ESNT_INP_VRFC_YN                AS esntInpVrfcYn                          
+	        , A.AMT_QTY_VRFC_YN                 AS amtQtyVrfcYn                          
+	        , A.DT_VLDT_VRFC_YN                 AS dtVldtVrfcYn                          
+	        , A.DT_VLDT_TP_CN                   AS dtVldtTpCn                          
+	        , A.NUM_VLDT_VRFC_YN                AS numVldtVrfcYn                          
+	        , A.CLUS_LEN_VRFC_YN                AS clusLenVrfcYn                          
+	        , A.CLUS_LEN                        AS clusLen                          
+	        , A.NUM_RSCO_VRFC_YN                AS numRscoVrfcYn                          
+	        , A.AL_RSCO                         AS alRsco                          
+	        , A.DCML_UNDR_RSCO                  AS dcmlUndrRsco                          
+	        , A.ERKY_ORDR                       AS erkyOrdr                          
+	        , A.PRTL_VRFC_YN                    AS prtlVrfcYn                          
+	    FROM    TB_COM_VRFC_BASE_D A
+	    WHERE   1 = 1
+	    AND    DOC_CD = #{docCd} 
+	    ORDER BY TRGT_TBL_NM, CLUS_SORT_ORDR
+	</select>
+	
+	<insert id="mergeInsertComVrfcBaseDMap" parameterType="java.util.HashMap">
+    /* mergeInsertComVrfcBaseD */
+        MERGE INTO TB_COM_VRFC_BASE_D
+        USING DUAL
+        ON (
+           DOC_CD = #{DOC_CD}
+        AND TRGT_TBL_NM = #{TRGT_TBL_NM}
+        AND TRGT_COL_NM = #{TRGT_COL_NM}
+        )
+        WHEN MATCHED THEN
+        UPDATE SET
+             LAST_CHPR_ID = 'SYSTEM' 
+           , LAST_CHG_DTTM = SYSTIMESTAMP
+           <if test="CLUS_SORT_ORDR != null">
+           , CLUS_SORT_ORDR = #{CLUS_SORT_ORDR}                             
+           </if>
+           <if test="COMN_CD_VRFC_YN != null">
+           , COMN_CD_VRFC_YN = #{COMN_CD_VRFC_YN}                            
+           </if>
+           <if test="COMN_CD != null">
+           , COMN_CD = #{COMN_CD}                                          
+           </if>
+           <if test="INDV_CD_VRFC_YN != null">
+           , INDV_CD_VRFC_YN = #{INDV_CD_VRFC_YN}                            
+           </if>
+           <if test="INDV_CD != null">
+           , INDV_CD = #{INDV_CD}                                          
+           </if>
+           <if test="INDV_CD_TBL_NM != null">
+           , INDV_CD_TBL_NM = #{INDV_CD_TBL_NM}                              
+           </if>
+           <if test="INDV_CD_COL_NM != null">
+           , INDV_CD_COL_NM = #{INDV_CD_COL_NM}                              
+           </if>
+           <if test="INDV_CD_ADIT_QURY_CN != null">
+           , INDV_CD_ADIT_QURY_CN = #{INDV_CD_ADIT_QURY_CN}                   
+           </if>
+           <if test="ESNT_INP_VRFC_YN != null">
+           , ESNT_INP_VRFC_YN = #{ESNT_INP_VRFC_YN}                          
+           </if>
+           <if test="AMT_QTY_VRFC_YN != null">
+           , AMT_QTY_VRFC_YN = #{AMT_QTY_VRFC_YN}                            
+           </if>
+           <if test="DT_VLDT_VRFC_YN != null">
+           , DT_VLDT_VRFC_YN = #{DT_VLDT_VRFC_YN}                            
+           </if>
+           <if test="DT_VLDT_TP_CN != null">
+           , DT_VLDT_TP_CN = #{DT_VLDT_TP_CN}                                
+           </if>
+           <if test="NUM_VLDT_VRFC_YN != null">
+           , NUM_VLDT_VRFC_YN = #{NUM_VLDT_VRFC_YN}                          
+           </if>
+           <if test="CLUS_LEN_VRFC_YN != null">
+           , CLUS_LEN_VRFC_YN = #{CLUS_LEN_VRFC_YN}                          
+           </if>
+           <if test="CLUS_LEN != null">
+           , CLUS_LEN = #{CLUS_LEN}                                        
+           </if>
+           <if test="NUM_RSCO_VRFC_YN != null">
+           , NUM_RSCO_VRFC_YN = #{NUM_RSCO_VRFC_YN}                          
+           </if>
+           <if test="AL_RSCO != null">
+           , AL_RSCO = #{AL_RSCO}                                          
+           </if>
+           <if test="DCML_UNDR_RSCO != null">
+           , DCML_UNDR_RSCO = #{DCML_UNDR_RSCO}                             
+           </if>
+           <if test="ERKY_ORDR != null">
+           , ERKY_ORDR = #{ERKY_ORDR}                                      
+           </if>
+           <if test="PRTL_VRFC_YN != null">
+           , PRTL_VRFC_YN = #{PRTL_VRFC_YN}                                 
+           </if>
+           , DEL_YN = 'N'
+        WHEN NOT MATCHED THEN
+        INSERT (
+             DOC_CD                                                       
+           , TRGT_TBL_NM                                                  
+           , TRGT_COL_NM                                                  
+           , CLUS_SORT_ORDR                                               
+           , COMN_CD_VRFC_YN                                              
+           , COMN_CD                                                      
+           , INDV_CD_VRFC_YN                                              
+           , INDV_CD                                                      
+           , INDV_CD_TBL_NM                                               
+           , INDV_CD_COL_NM                                               
+           , INDV_CD_ADIT_QURY_CN                                         
+           , ESNT_INP_VRFC_YN                                             
+           , AMT_QTY_VRFC_YN                                              
+           , DT_VLDT_VRFC_YN                                              
+           , DT_VLDT_TP_CN                                                
+           , NUM_VLDT_VRFC_YN                                             
+           , CLUS_LEN_VRFC_YN                                             
+           , CLUS_LEN                                                     
+           , NUM_RSCO_VRFC_YN                                             
+           , AL_RSCO                                                      
+           , DCML_UNDR_RSCO                                               
+           , ERKY_ORDR                                                    
+           , PRTL_VRFC_YN                                                 
+           , DEL_YN                                                       
+           , FRST_REGST_ID                                                
+           , FRST_RGSR_DTTM                                               
+           , LAST_CHPR_ID                                                 
+           , LAST_CHG_DTTM                                                
+        ) VALUES ( 
+             #{DOC_CD}                                                     
+           , #{TRGT_TBL_NM}                                                 
+           , #{TRGT_COL_NM}                                                 
+           , #{CLUS_SORT_ORDR}                                              
+           , #{COMN_CD_VRFC_YN}                                              
+           , #{COMN_CD}                                                    
+           , #{INDV_CD_VRFC_YN}                                              
+           , #{INDV_CD}                                                    
+           , #{INDV_CD_TBL_NM}                                               
+           , #{INDV_CD_COL_NM}                                               
+           , #{INDV_CD_ADIT_QURY_CN}                                          
+           , #{ESNT_INP_VRFC_YN}                                             
+           , #{AMT_QTY_VRFC_YN}                                              
+           , #{DT_VLDT_VRFC_YN}                                              
+           , #{DT_VLDT_TP_CN}                                                
+           , #{NUM_VLDT_VRFC_YN}                                             
+           , #{CLUS_LEN_VRFC_YN}                                             
+           , #{CLUS_LEN}                                                   
+           , #{NUM_RSCO_VRFC_YN}                                             
+           , #{AL_RSCO}                                                    
+           , #{DCML_UNDR_RSCO}                                              
+           , #{ERKY_ORDR}                                                  
+           , #{PRTL_VRFC_YN}                                                
+           , 'N'                                                     
+           , 'SYSTEM'                                               
+           , SYSTIMESTAMP                                                 
+           , 'SYSTEM'                                                
+           , SYSTIMESTAMP                                                 
+        )
+    </insert>
+    
+    <update id="updateDelYnComVrfcBaseD" parameterType="java.util.HashMap">
+    /* updateDelYnComVrfcBaseD */
+        UPDATE TB_COM_VRFC_BASE_D 
+          SET  DEL_YN = 'N'
+             , LAST_CHPR_ID = 'SYSTEM'
+             , LAST_CHG_DTTM = SYSTIMESTAMP
+        WHERE  DOC_CD = #{docCd}
+    </update>
+	
+	<insert id="mergeInsertComVrfcBaseD" parameterType="vrfcBaseDVo">
+	/* mergeInsertComVrfcBaseD */
+	    MERGE INTO TB_COM_VRFC_BASE_D
+	    USING DUAL
+	    ON (
+	       DOC_CD = #{docCd}
+	    , TRGT_TBL_NM = #{trgtTblNm}
+	    , TRGT_COL_NM = #{trgtColNm}
+	    )
+	    WHEN MATCHED THEN
+	    UPDATE SET
+	         LAST_CHPR_ID = #{lastChprId}
+	       , LAST_CHG_DTTM = SYSTIMESTAMP
+	       <if test="clusSortOrdr != null">
+	       , CLUS_SORT_ORDR = #{clusSortOrdr}                             
+	       </if>
+	       <if test="comnCdVrfcYn != null">
+	       , COMN_CD_VRFC_YN = #{comnCdVrfcYn}                            
+	       </if>
+	       <if test="comnCd != null">
+	       , COMN_CD = #{comnCd}                                          
+	       </if>
+	       <if test="indvCdVrfcYn != null">
+	       , INDV_CD_VRFC_YN = #{indvCdVrfcYn}                            
+	       </if>
+	       <if test="indvCd != null">
+	       , INDV_CD = #{indvCd}                                          
+	       </if>
+	       <if test="indvCdTblNm != null">
+	       , INDV_CD_TBL_NM = #{indvCdTblNm}                              
+	       </if>
+	       <if test="indvCdColNm != null">
+	       , INDV_CD_COL_NM = #{indvCdColNm}                              
+	       </if>
+	       <if test="indvCdAditQuryCn != null">
+	       , INDV_CD_ADIT_QURY_CN = #{indvCdAditQuryCn}                   
+	       </if>
+	       <if test="esntInpVrfcYn != null">
+	       , ESNT_INP_VRFC_YN = #{esntInpVrfcYn}                          
+	       </if>
+	       <if test="amtQtyVrfcYn != null">
+	       , AMT_QTY_VRFC_YN = #{amtQtyVrfcYn}                            
+	       </if>
+	       <if test="dtVldtVrfcYn != null">
+	       , DT_VLDT_VRFC_YN = #{dtVldtVrfcYn}                            
+	       </if>
+	       <if test="dtVldtTpCn != null">
+	       , DT_VLDT_TP_CN = #{dtVldtTpCn}                                
+	       </if>
+	       <if test="numVldtVrfcYn != null">
+	       , NUM_VLDT_VRFC_YN = #{numVldtVrfcYn}                          
+	       </if>
+	       <if test="clusLenVrfcYn != null">
+	       , CLUS_LEN_VRFC_YN = #{clusLenVrfcYn}                          
+	       </if>
+	       <if test="clusLen != null">
+	       , CLUS_LEN = #{clusLen}                                        
+	       </if>
+	       <if test="numRscoVrfcYn != null">
+	       , NUM_RSCO_VRFC_YN = #{numRscoVrfcYn}                          
+	       </if>
+	       <if test="alRsco != null">
+	       , AL_RSCO = #{alRsco}                                          
+	       </if>
+	       <if test="dcmlUndrRsco != null">
+	       , DCML_UNDR_RSCO = #{dcmlUndrRsco}                             
+	       </if>
+	       <if test="erkyOrdr != null">
+	       , ERKY_ORDR = #{erkyOrdr}                                      
+	       </if>
+	       <if test="prtlVrfcYn != null">
+	       , PRTL_VRFC_YN = #{prtlVrfcYn}                                 
+	       </if>
+	       <if test="delYn != null">
+	       , DEL_YN = #{delYn}                                            
+	       </if>
+	    WHEN NOT MATCHED THEN
+	    INSERT (
+	         DOC_CD                                                       
+	       , TRGT_TBL_NM                                                  
+	       , TRGT_COL_NM                                                  
+	       , CLUS_SORT_ORDR                                               
+	       , COMN_CD_VRFC_YN                                              
+	       , COMN_CD                                                      
+	       , INDV_CD_VRFC_YN                                              
+	       , INDV_CD                                                      
+	       , INDV_CD_TBL_NM                                               
+	       , INDV_CD_COL_NM                                               
+	       , INDV_CD_ADIT_QURY_CN                                         
+	       , ESNT_INP_VRFC_YN                                             
+	       , AMT_QTY_VRFC_YN                                              
+	       , DT_VLDT_VRFC_YN                                              
+	       , DT_VLDT_TP_CN                                                
+	       , NUM_VLDT_VRFC_YN                                             
+	       , CLUS_LEN_VRFC_YN                                             
+	       , CLUS_LEN                                                     
+	       , NUM_RSCO_VRFC_YN                                             
+	       , AL_RSCO                                                      
+	       , DCML_UNDR_RSCO                                               
+	       , ERKY_ORDR                                                    
+	       , PRTL_VRFC_YN                                                 
+	       , DEL_YN                                                       
+	       , FRST_REGST_ID                                                
+	       , FRST_RGSR_DTTM                                               
+	       , LAST_CHPR_ID                                                 
+	       , LAST_CHG_DTTM                                                
+	    ) VALUES ( 
+	         #{docCd}                                                     
+	       , #{trgtTblNm}                                                 
+	       , #{trgtColNm}                                                 
+	       , #{clusSortOrdr}                                              
+	       , #{comnCdVrfcYn}                                              
+	       , #{comnCd}                                                    
+	       , #{indvCdVrfcYn}                                              
+	       , #{indvCd}                                                    
+	       , #{indvCdTblNm}                                               
+	       , #{indvCdColNm}                                               
+	       , #{indvCdAditQuryCn}                                          
+	       , #{esntInpVrfcYn}                                             
+	       , #{amtQtyVrfcYn}                                              
+	       , #{dtVldtVrfcYn}                                              
+	       , #{dtVldtTpCn}                                                
+	       , #{numVldtVrfcYn}                                             
+	       , #{clusLenVrfcYn}                                             
+	       , #{clusLen}                                                   
+	       , #{numRscoVrfcYn}                                             
+	       , #{alRsco}                                                    
+	       , #{dcmlUndrRsco}                                              
+	       , #{erkyOrdr}                                                  
+	       , #{prtlVrfcYn}                                                
+	       , 'N'                                                     
+	       , 'SYSTEM'                                               
+	       , SYSTIMESTAMP                                                 
+	       , 'SYSTEM'                                                
+	       , SYSTIMESTAMP                                                 
+	    )
+	</insert>
+	
+    
+</mapper>

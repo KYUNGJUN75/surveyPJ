@@ -1,0 +1,155 @@
+ul {
+	list-style: none;
+}
+ul li {
+	margin: 0px 5px;
+	font-size: 0.9em;
+	font-family: "Helvetica", serif;
+}
+footer {
+	padding: 5px;
+}
+pre {
+	overflow: scroll; font-size: 10px;
+}
+ul.tab {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    height: 32px;
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    width: 100%;
+}
+ul.tab li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 31px;
+    line-height: 31px;
+    border: 1px solid #999;
+    border-left: none;
+    margin-bottom: -1px;
+    overflow: hidden;
+    position: relative;
+    background: #e0e0e0;
+}
+ul.tab li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    font-size: 1.2em;
+    padding: 0 20px;
+    border: 1px solid #fff;
+    outline: none;
+}
+ul.tab li a:hover {
+    background: #ccc;
+}
+html ul.tab li.active, html ul.tab li.active a:hover  {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+#container {
+    border: 1px solid #999;
+    border-top: none;
+    overflow: hidden;
+    clear: both;
+    float: left; width: 100%;
+    background: #fff;
+}
+.tab_content {
+    padding: 10px;
+    font-size: 1.2em;
+}
+::selection {
+	color: rgb(255, 255, 255); background-color: rgb(145, 216, 247);
+}
+a {
+	outline: 0px; color: rgb(34, 34, 34); text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+p a:hover {
+	color: rgb(39, 179, 207);
+}
+a:active {
+	top: 2px; position: relative;
+}
+.clearfix {
+	clear: both;
+}
+.back {
+	padding-left: 10px;
+}
+.back a {
+	color: rgb(0, 84, 166);
+}
+.back a:visited {
+	color: rgb(0, 84, 166);
+}
+body {
+	background: rgb(249, 249, 249); color: rgb(34, 34, 34); font-family: "Helvetica", serif; font-size: 16px; transition-property: font-size; transition-duration: 0.5s, 0.5s; -webkit-transition-property: font-size; -moz-transition-property: font-size; -webkit-transition-duration: 0.5s, 0.5s; -moz-transition-duration: 0.5s, 0.5s;
+}
+#wrapper {
+	background: rgb(255, 255, 255); margin: 10px auto; padding: 10px 0px; width: 90%; max-width: 980px;
+}
+header {
+	padding: 3px;
+}
+h1 {
+	padding: 10px; line-height: 75px; font-family: "Helvetica", serif; font-size: 30px; transition-property: font-size; transition-duration: 0.5s, 0.5s; -webkit-transition-property: font-size; -moz-transition-property: font-size; -webkit-transition-duration: 0.5s, 0.5s; -moz-transition-duration: 0.5s, 0.5s;
+}
+h1 a:hover {
+	color: rgb(39, 179, 207); text-decoration: none;
+}
+h2 {
+	padding: 10px; font-family: "Helvetica"; font-size: 18px; transition-property: font-size; transition-duration: 0.5s, 0.5s; -webkit-transition-property: font-size; -moz-transition-property: font-size; -webkit-transition-duration: 0.5s, 0.5s; -moz-transition-duration: 0.5s, 0.5s;
+}
+h3 {
+	font-family: "Helvetica", serif; font-size: 30px;
+}
+h4 {
+	margin: 5px 0px 0px; padding: 3px; font-family: "Helvetica", serif;
+}
+h4 a {
+	text-decoration: underline;
+}
+h4 a:hover {
+	
+}
+nav {
+	background: rgb(34, 34, 34); margin: 10px 0px; padding: 0px;
+}
+nav a {
+	padding: 10px; color: rgb(249, 249, 249); float: left; display: block;
+}
+nav a:visited {
+	color: rgb(249, 249, 249);
+}
+nav a:hover {
+	background: rgb(39, 179, 207); text-decoration: none;
+}
+nav a:active {
+	top: 0px; position: relative;
+}
+.left-col {
+	width: 70%; float: left;
+}
+.sidebar {
+	width: 20%; margin-bottom: 10px; float: right; transition-property: width; transition-duration: 0.5s, 0.5s; -webkit-transition-property: width; -moz-transition-property: width; -webkit-transition-duration: 0.5s, 0.5s; -moz-transition-duration: 0.5s, 0.5s;
+}
+#featured {
+	padding: 20px;
+}
+#latest {
+	padding: 20px;
+}
+#about {
+	padding: 20px;
+}
+p {
+	padding: 0px 5px;
+}
